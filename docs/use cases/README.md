@@ -9,7 +9,7 @@
 2. Користувач отримує повідомлення про відхиленя доступу для неавторизованого користувача.
 3. Система завершує взаємодію
 
-![v1 NOT LOGGED EX 004](https://user-images.githubusercontent.com/37234379/140080723-9a29dfcd-4a7f-42ee-94d6-f5ce7f374e34.png)
+![v1 NOT LOGGED EX 004](https://user-images.githubusercontent.com/70840330/140145865-bc8ba8cb-8670-4f80-b029-acb4e56e8f44.jpg)
 
 - ID:	v1.COMMON.EX.001
 - НАЗВА:	Повідомити про відсутність запитаних даних
@@ -22,7 +22,7 @@
 2. Користувач отримує повідомлення про відсутність запитаних даних.
 3. Система завершує взаємодію
 
-![v1 COMMON EX 001](https://user-images.githubusercontent.com/37234379/140081387-ab8a60a9-7843-4e73-a355-e63528dd2985.png)
+![v1 COMMON EX 001](https://user-images.githubusercontent.com/70840330/140153286-769f34a6-a5c8-4163-9d3b-5a5e387a64a9.jpg)
 
 - ID:	v1.COMMON.EX.002
 - НАЗВА:	Відхилити доступ користувача до даних
@@ -34,7 +34,7 @@
 2. Користувач отримує повідомлення про відхилення доступу до даних.
 3. Система завершує взаємодію
 
-![v1 COMMON EX 002](https://user-images.githubusercontent.com/37234379/140082199-4239dd9d-c33d-41f2-a443-a6f5bee236d8.png)
+![v1 COMMON EX 002](https://user-images.githubusercontent.com/70840330/140152433-912a5352-e1d9-4a9c-a49b-a9cd04218bd5.jpg)
 
 - ID:	v1.COMMON.EX.003
 - НАЗВА:	Відхилити хибні дані
@@ -47,4 +47,4 @@
 2. Користувач отримує повідомлення про відхилення хибних даних.
 3. Система завершує взаємодію
 
-![v1 COMMON EX 003](https://user-images.githubusercontent.com/37234379/140082667-7d94ba32-95b8-46f0-8b88-db0e0fac66e4.png)
+![v1 COMMON EX 003](https://user-images.githubusercontent.com/70840330/140147642-b387f331-38dd-45ae-960a-0eb0104e5ff7.jpg)
