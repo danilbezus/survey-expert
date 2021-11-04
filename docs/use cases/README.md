@@ -152,3 +152,5 @@
 ```
 
 яка буде відображена наступним чином:
+
+![alt text](UML-images/uml_organization_004.png)
