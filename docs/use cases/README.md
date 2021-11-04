@@ -153,4 +153,4 @@
 
 яка буде відображена наступним чином:
 
-![alt text](UML-images/uml_organization_004.png)
+![alt text](UML_images/uml_organization_004.png)
