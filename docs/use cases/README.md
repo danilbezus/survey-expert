@@ -73,3 +73,82 @@
             
 ![alt text](UML_images/uml_precedent_model.png)
 
+**Сценарій v1.ORGANIZATION.004**
+
+```md
+
+@startuml
+
+    left header
+    
+        <font color=000 size=18><b>ID:</b> v1.ORGANIZATION.004
+        
+        <font color=000 size=16><b>НАЗВА:</b> Створити опитування
+        <font color=000 size=16><b>УЧАСНИКИ:</b> Користувач, Система
+        
+        <font color=000 size=16><b>ПЕРЕДУМОВИ:</b> 
+        <font color=000 size=16>1.Користувач авторизований у системі.
+        <font color=000 size=16>2.Користувач має доступ до запитаної організації.
+        
+        <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Повідомлення про створення опитування.
+        
+        <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b> 
+        <font color=000 size=16>v1.NOT_LOGGED.EX.004
+        <font color=000 size=16>v1.COMMON.EX.001
+        <font color=000 size=16>v1.COMMON.EX.002
+        <font color=000 size=16>v1.COMMON.EX.003
+        
+        <font color=000 size=16><b>ОСНОВНИЙ СЦЕНАРІЙ:</b>
+        
+    end header
+    
+    |Користувач|
+        start
+        :Користувач надсилає 
+        запит на створення 
+        опитування та його дані;
+    
+    |Система|
+        :Система ідентифікує 
+        користувача;
+        note right #ffaaaa
+        <b>Можлива</b> 
+        <b>v1.NOT_LOGGED.EX.004</b>
+        end note
+        
+        :Система знаходить дані 
+        про організацію;
+        note right #ffaaaa
+        <b>Можлива</b> 
+        <b>v1.COMMON.EX.001</b>
+        end note
+        
+        :Система авторизує користувача;
+        note right #ffaaaa
+        <b>Можлива</b> 
+        <b>v1.COMMON.EX.002</b>
+        end note
+        
+        :Система перевіряє 
+        правильність надісланих даних;
+        note right #ffaaaa
+        <b>Можлива</b> 
+        <b>v1.COMMON.EX.003</b>
+        end note
+        
+        :Система створює опитування;
+        
+        :Система надсилає 
+        користувачу повідомлення про 
+        створення опитування;
+    
+    |Користувач|
+        :Користувач завершує 
+        взаємодію;
+        stop;
+  
+@enduml
+
+```
+
+яка буде відображена наступним чином:
