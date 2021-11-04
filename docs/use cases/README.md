@@ -146,4 +146,6 @@
 **Діаграма прецедентів**
 
 </center>
+            
+![alt text](/docs/use\ cases/uml_precedent_model.png)
 
