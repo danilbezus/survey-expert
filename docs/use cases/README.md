@@ -147,5 +147,5 @@
 
 </center>
             
-![alt text](docs/use%20cases/uml_precedent_model.png)
+![alt text](uml_precedent_model.png)
 
