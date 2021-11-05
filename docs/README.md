@@ -12,11 +12,15 @@ _студенти 2-го курсу, групи ІП-03_<span padding-right:5em>
 
 **Матвій КИРИК [telegram](https://t.me/petroshchur)**
 
-**Матвій КИРИК2 [telegram](https://t.me/petroshchur)**
+**Михайло СОКОЛЮК [telegram](https://t.me/mixac9)**
 
-**Матвій КИРИК3 [telegram](https://t.me/petroshchur)**
+**Михайло ПІНСЬКИЙ [telegram](https://t.me/Medicinsky)**
 
-**Матвій КИРИК4 [telegram](https://t.me/petroshchur)**
+**Олександр КУХАРУК [telegram](https://t.me/VipDipp)**
+
+**Сергій ОЧЕРЕТЕНКО [telegram](https://t.me/OcheretenkoS)**
+
+**Данило БЕЗУС [telegram](https://t.me/DEmazun)**
 
 **Керівник**
 
