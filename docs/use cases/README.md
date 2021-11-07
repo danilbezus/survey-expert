@@ -315,7 +315,7 @@
 
 яка буде відображена наступним чином:
 
-![alt text](UML_images/uml_organization_004.png)
+![v1.ORGANIZATION.004](https://user-images.githubusercontent.com/71709401/140643836-9a3723b4-5fa9-4b1e-af1b-8b1dc9b6bb4b.png)
 <br><br>
 
 - ID: v1.NOT_LOGGED.EX.004
