@@ -100,7 +100,7 @@
 - - 6. Система надає користувачу повідомлення про зарахування результатів опитування.
 - - 7. Користувач завершує взаємодію.
 
-![v1 USER 002](https://user-images.githubusercontent.com/70840330/140174942-27d2243e-5a61-4d08-bb60-2792c5b7082d.png
+![v1 USER 002](https://user-images.githubusercontent.com/70840330/140174942-27d2243e-5a61-4d08-bb60-2792c5b7082d.png)
 <br><br>
 
 - ID: v1.USER.003
