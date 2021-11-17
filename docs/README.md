@@ -12,7 +12,7 @@ _студенти 2-го курсу, групи ІП-03_<span padding-right:5em>
 
 **Матвій КИРИК - [Telegram](https://t.me/petroshchur), [Github](https://github.com/MatthewKirik)**
 
-**Михайло СОКОЛЮК - [Telegram](https://t.me/mixac9), [Github](https://github.com/SokolyukMisha)*
+**Михайло СОКОЛЮК - [Telegram](https://t.me/mixac9), [Github](https://github.com/SokolyukMisha)**
 
 **Михайло ПІНСЬКИЙ - [Telegram](https://t.me/Medicinsky), [Github](https://github.com/Znskiy)**
 
