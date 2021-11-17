@@ -10,17 +10,17 @@ footer: "ECL 2.0 Licensed | Copyright © [YYYY] [Your Name]"
 
 _студенти 2-го курсу, групи ІП-03_<span padding-right:5em></span>
 
-**Матвій КИРИК [telegram](https://t.me/petroshchur)**
+**Матвій КИРИК - [Telegram](https://t.me/petroshchur)**
 
-**Михайло СОКОЛЮК [telegram](https://t.me/mixac9)**
+**Михайло СОКОЛЮК - [Telegram](https://t.me/mixac9)**
 
-**Михайло ПІНСЬКИЙ [telegram](https://t.me/Medicinsky)**
+**Михайло ПІНСЬКИЙ - [Telegram](https://t.me/Medicinsky)**
 
-**Олександр КУХАРУК [telegram](https://t.me/VipDipp)**
+**Олександр КУХАРУК - [Telegram](https://t.me/VipDipp)**
 
-**Сергій ОЧЕРЕТЕНКО [telegram](https://t.me/OcheretenkoS)**
+**Сергій ОЧЕРЕТЕНКО - [Telegram](https://t.me/OcheretenkoS)**
 
-**Данило БЕЗУС [telegram](https://t.me/DEmazun)**
+**Данило БЕЗУС - [Telegram](https://t.me/DEmazun)**
 
 **Керівник**
 
