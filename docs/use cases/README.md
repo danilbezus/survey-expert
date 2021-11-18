@@ -298,6 +298,7 @@
 @enduml
 ```
 яка буде відображена наступним чином:
+
 ![image](https://user-images.githubusercontent.com/71893656/140224356-f27bc51b-7757-4a55-97f7-6fb9fdf41211.png)
 <br><br>
 
@@ -382,6 +383,7 @@
 @enduml
 ```
 яка буде відображена наступним чином:
+
 ![image](https://user-images.githubusercontent.com/71893656/140228766-449b96d8-d55a-44f6-b80f-dbd5d7554840.png)
 <br><br>
 
