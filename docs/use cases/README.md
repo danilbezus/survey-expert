@@ -8,7 +8,7 @@
 
 - Загальна діаграма бізнес процесів:
 
-![General Diagram](https://user-images.githubusercontent.com/31734600/140572975-c14cbd2f-3259-4dd5-9b75-cf22e9784751.png)
+![General Diagram](https://user-images.githubusercontent.com/31734600/142782266-94a6df78-9d32-4a05-8be8-51d2fbb35888.png)
 <br><br><br>
 **Діаграми прецедентів**
 <br><br>
@@ -159,368 +159,360 @@
 
 - ID: v1.USER.002
 
-  <center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
+    <center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
+
+  @startuml
+
+        left header
+             <font color=000 size=10><b>ID:</b> v1.USER.002
+             <font color=000 size=10><b>НАЗВА:</b>Отримати дані для проходження опитування
+             <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система
+             <font color=000 size=10><b>ПЕРЕДУМОВИ:</b>
+             <font color=000 size=10>Користувач авторизований у системі.
+             <font color=000 size=10>Користувач має доступ до запитаного опитування.
+             <font color=000 size=10>Користувач коректно пройшов опитування.
+             <font color=000 size=10><b>РЕЗУЛЬТАТ:</b>Повідомлення про зарахування результатів опитування користувача
+             <font color=000 size=10><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
+             <font color=000 size=10>v1.NOT_LOGGED.EX.004
+             <font color=000 size=10>v1.COMMON.EX.001
+             <font color=000 size=10>v1.COMMON.EX.002
+             <font color=000 size=10>v1.COMMON.EX.003
+         end header
+
+         |Користувач|
+             start
+             : Натискає кнопку "Завершити опитування" ;
+
+         |Система|
+             : ідентифікує користувача;
+
+             note right #ff0000
+             <b>Можлива</b>
+             <b>v1.NOT_LOGGED.EX.004</b>
+             end note
+
+             :перевіряє правильність даних про проходження опитування;
+
+             note right #ff0000
+             <b>Можлива</b>
+             <b>v1.COMMON.EX.003</b>
+             end note
+
+             :надає користувачу повідомлення про зарахування результатів опитування;
+
+         |Користувач|
+             stop;
+
+  @enduml
+
+  </center>
+
+- ID: v1.USER.003
+
+    <center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
 
   @startuml
 
       left header
-           <font color=000 size=10><b>ID:</b> v1.USER.002
-           <font color=000 size=10><b>НАЗВА:</b>Отримати дані для проходження опитування
+           <font color=000 size=10><b>ID:</b> v1.USER.003
+           <font color=000 size=10><b>НАЗВА:</b> Отримати зворотній зв'язок стосовно надісланого опитування
            <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система
            <font color=000 size=10><b>ПЕРЕДУМОВИ:</b>
            <font color=000 size=10>Користувач авторизований у системі.
            <font color=000 size=10>Користувач має доступ до запитаного опитування.
            <font color=000 size=10>Користувач коректно пройшов опитування.
-           <font color=000 size=10><b>РЕЗУЛЬТАТ:</b>Повідомлення про зарахування результатів опитування користувача
+           <font color=000 size=10>У системі є дані про зворотній зв'язок стосовно опитування
+           <font color=000 size=10><b>РЕЗУЛЬТАТ:</b> Зворотній зв'язок стосовно надісланого опитування
            <font color=000 size=10><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
-           <font color=000 size=10>v1.NOT_LOGGED.EX.004
-           <font color=000 size=10>v1.COMMON.EX.001
-           <font color=000 size=10>v1.COMMON.EX.002
-           <font color=000 size=10>v1.COMMON.EX.003
+           <font color=000 size=10>->v1.NOT_LOGGED.EX.004
+           <font color=000 size=10>->v1.COMMON.EX.001
+           <font color=000 size=10>->v1.COMMON.EX.002
+           <font color=000 size=10>->v1.COMMON.EX.003
        end header
-
        |Користувач|
            start
-           : Натискає кнопку "Завершити опитування" ;
-
+           : Натискає на отримання
+           даних про зворотній зв'язок
+           стосовно опитування;
        |Система|
-           : ідентифікує користувача;
+           : Шукає користувача у
+           базі даних користувачів
+           та ідентифікує його;
 
            note right #ff0000
            <b>Можлива</b>
            <b>v1.NOT_LOGGED.EX.004</b>
            end note
 
-           :перевіряє правильність даних про проходження опитування;
+           : Перевіряє, чи існує задане опитування;
+
+           note right #ff0000
+           <b>Можлива</b>
+           <b>v1.COMMON.EX.001</b>
+           end note
+
+           : Перевіряє, чи є доступ
+           у користувача до заданого
+           опитування;
+
+           note right #ff0000
+           <b>Можлива</b>
+           <b>v1.COMMON.EX.002</b>
+           end note
+
+           : Перевіряє правильність даних
+           про проходження користувачем опитування;
 
            note right #ff0000
            <b>Можлива</b>
            <b>v1.COMMON.EX.003</b>
            end note
 
-           :надає користувачу повідомлення про зарахування результатів опитування;
+           : Шукає дані про задане опитування;
 
+           : Надає користувачу дані про зворотній
+           зв'язок стосовно опитування;
        |Користувач|
            stop;
 
   @enduml
 
-     </center>
-
-- ID: v1.USER.003
-
-```md
-@startuml
-    left header
-         <font color=000 size=10><b>ID:</b> v1.USER.003
-         <font color=000 size=10><b>НАЗВА:</b> Отримати зворотній зв'язок стосовно надісланого опитування
-         <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система 
-         <font color=000 size=10><b>ПЕРЕДУМОВИ:</b>
-         <font color=000 size=10>Користувач авторизований у системі.
-         <font color=000 size=10>Користувач має доступ до запитаного опитування.
-         <font color=000 size=10>Користувач коректно пройшов опитування.
-         <font color=000 size=10>У системі є дані про зворотній зв'язок стосовно опитування
-         <font color=000 size=10><b>РЕЗУЛЬТАТ:</b> Зворотній зв'язок стосовно надісланого опитування
-         <font color=000 size=10><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b> 
-         <font color=000 size=10>->v1.NOT_LOGGED.EX.004
-         <font color=000 size=10>->v1.COMMON.EX.001
-         <font color=000 size=10>->v1.COMMON.EX.002
-         <font color=000 size=10>->v1.COMMON.EX.003
-     end header
-     |Користувач|
-         start
-         : Натискає на отримання 
-         даних про зворотній зв'язок
-         стосовно опитування;
-     |Система|
-         : Шукає користувача у 
-         базі даних користувачів
-         та ідентифікує його;
-         
-         note right #ff0000
-         <b>Можлива</b>
-         <b>v1.NOT_LOGGED.EX.004</b>
-         end note
-         
-         : Перевіряє, чи існує задане опитування;
-         
-         note right #ff0000
-         <b>Можлива</b>
-         <b>v1.COMMON.EX.001</b>
-         end note
-         
-         : Перевіряє, чи є доступ
-         у користувача до заданого
-         опитування;
-         
-         note right #ff0000
-         <b>Можлива</b>
-         <b>v1.COMMON.EX.002</b>
-         end note
-         
-         : Перевіряє правильність даних
-         про проходження користувачем опитування;
-         
-         note right #ff0000
-         <b>Можлива</b>
-         <b>v1.COMMON.EX.003</b>
-         end note
-         
-         : Шукає дані про задане опитування;
-         
-         : Надає користувачу дані про зворотній 
-         зв'язок стосовно опитування;
-     |Користувач|
-         stop;
-@enduml
-```
-яка буде відображена наступним чином:
-
-![image](https://user-images.githubusercontent.com/71893656/140197276-debab64a-fafa-4c26-847b-cc870ed12374.png)
-<br><br>
+  </center>
 
 - ID: v1.ORGANIZATION.001
 
-```md
-@startuml
+    <center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
 
-    left header
-         <font color=000 size=10><b>ID:</b> v1.ORGANIZATION.001
-         <font color=000 size=10><b>НАЗВА:</b> Створити організацію
-         <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система 
-         <font color=000 size=10><b>ПЕРЕДУМОВИ:</b>Користувач авторизований у системі.
-         <font color=000 size=10><b>РЕЗУЛЬТАТ:</b> Повідомлення про створення організації
-         <font color=000 size=10><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b> 
-         <font color=000 size=10>->v1.NOT_LOGGED.EX.004
-         <font color=000 size=10>->v1.COMMON.EX.003
-     end header
-     
-     |Користувач|
-         start
-         : Надсилає запит на 
-         створення організації ;
-         
-     |Система|
-         : Шукає користувача у 
-         базі даних користувачів
-         та ідентифікує його;
-         
-         note right #ff0000
-         <b>Можлива</b>
-         <b>v1.NOT_LOGGED.EX.004</b>
-         end note
-         
-         : Надає користувачу форму
-         для заповнення даних
-         про організацію;
-         
-     |Користувач|
-         : Надає у формі потрібні
-         дані про організацію;
-         
-     |Система|
-         : Перевіряє правильність
-         надісланих даних;
-         
-         note right #ff0000
-         <b>Можлива</b>
-         <b>v1.COMMON.EX.003</b>
-         end note
-         
-         : Створює організацію;
-         
-         : Надсилає користувачу дані 
-         про створення організації;
-     |Користувач|
-         stop;
-@enduml
-```
-яка буде відображена наступним чином:
+  @startuml
 
-![image](https://user-images.githubusercontent.com/71893656/140225337-4bb7d7fa-2964-44d7-b7f1-fef4dde5ddbb.png)
-<br><br>
+      left header
+           <font color=000 size=10><b>ID:</b> v1.ORGANIZATION.001
+           <font color=000 size=10><b>НАЗВА:</b> Створити організацію
+           <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система
+           <font color=000 size=10><b>ПЕРЕДУМОВИ:</b>Користувач авторизований у системі.
+           <font color=000 size=10><b>РЕЗУЛЬТАТ:</b> Повідомлення про створення організації
+           <font color=000 size=10><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
+           <font color=000 size=10>->v1.NOT_LOGGED.EX.004
+           <font color=000 size=10>->v1.COMMON.EX.003
+       end header
+
+       |Користувач|
+           start
+           : Надсилає запит на
+           створення організації ;
+
+       |Система|
+           : Шукає користувача у
+           базі даних користувачів
+           та ідентифікує його;
+
+           note right #ff0000
+           <b>Можлива</b>
+           <b>v1.NOT_LOGGED.EX.004</b>
+           end note
+
+           : Надає користувачу форму
+           для заповнення даних
+           про організацію;
+
+       |Користувач|
+           : Надає у формі потрібні
+           дані про організацію;
+
+       |Система|
+           : Перевіряє правильність
+           надісланих даних;
+
+           note right #ff0000
+           <b>Можлива</b>
+           <b>v1.COMMON.EX.003</b>
+           end note
+
+           : Створює організацію;
+
+           : Надсилає користувачу дані
+           про створення організації;
+       |Користувач|
+           stop;
+
+  @enduml
+
+  </center>
 
 - ID: v1.ORGANIZATION.002
 
-```md
-@startuml
+    <center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
 
-    left header
-         <font color=000 size=10><b>ID:</b> v1.ORGANIZATION.002
-         <font color=000 size=10><b>НАЗВА:</b> Отримати дані про організацію
-         <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система 
-         <font color=000 size=10><b>ПЕРЕДУМОВИ:</b>
-         <font color=000 size=10>Користувач авторизований у системі.
-         <font color=000 size=10>Користувач має доступ до запитаної організації.
-         <font color=000 size=10><b>РЕЗУЛЬТАТ:</b> Дані про організацію
-         <font color=000 size=10><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b> 
-         <font color=000 size=10>v1.NOT_LOGGED.EX.004
-         <font color=000 size=10>v1.COMMON.EX.001
-         <font color=000 size=10>v1.COMMON.EX.002
-     end header
-     
-     |Користувач|
-         start
-         : Запитує дані
-         про організацію ;
-         
-     |Система|
-         : Ідентифікує користувача;
-         
-         note right #ff0000
-         <b>Можлива</b>
-         <b>v1.NOT_LOGGED.EX.004</b>
-         end note
-         
-         : Перевіряє, чи
-         існує організація;
-         
-         note right #ff0000
-         <b>Можлива</b>
-         <b>v1.COMMON.EX.001</b>
-         end note
-         
-         : Знаходить дані
-         про організацію;
-         
-         
-         
-         : Авторизує користувача
-         для отримання даних
-         про організацію;
-         
-         note right #ff0000
-         <b>Можлива</b>
-         <b>v1.COMMON.EX.002</b>
-         end note
-         
-         : Надсилає користувачу
-         дані про організацію;
-         
-     |Користувач|
-         stop;
-@enduml
-```
-яка буде відображена наступним чином:
-![image](https://user-images.githubusercontent.com/71893656/140224356-f27bc51b-7757-4a55-97f7-6fb9fdf41211.png)
-<br><br>
+  @startuml
+
+      left header
+           <font color=000 size=10><b>ID:</b> v1.ORGANIZATION.002
+           <font color=000 size=10><b>НАЗВА:</b> Отримати дані про організацію
+           <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система
+           <font color=000 size=10><b>ПЕРЕДУМОВИ:</b>
+           <font color=000 size=10>Користувач авторизований у системі.
+           <font color=000 size=10>Користувач має доступ до запитаної організації.
+           <font color=000 size=10><b>РЕЗУЛЬТАТ:</b> Дані про організацію
+           <font color=000 size=10><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
+           <font color=000 size=10>v1.NOT_LOGGED.EX.004
+           <font color=000 size=10>v1.COMMON.EX.001
+           <font color=000 size=10>v1.COMMON.EX.002
+       end header
+
+       |Користувач|
+           start
+           : Запитує дані
+           про організацію ;
+
+       |Система|
+           : Ідентифікує користувача;
+           note right #ff0000
+           <b>Можлива</b>
+           <b>v1.NOT_LOGGED.EX.004</b>
+           end note
+
+           : Перевіряє, чи
+           існує організація;
+
+           note right #ff0000
+           <b>Можлива</b>
+           <b>v1.COMMON.EX.001</b>
+           end note
+
+           : Знаходить дані
+           про організацію;
+
+           : Авторизує користувача
+           для отримання даних
+           про організацію;
+
+           note right #ff0000
+           <b>Можлива</b>
+           <b>v1.COMMON.EX.002</b>
+           end note
+
+           : Надсилає користувачу
+           дані про організацію;
+       |Користувач|
+           stop;
+
+  @enduml
+
+  </center>
 
 - ID: v1.ORGANIZATION.003
-```md
-@startuml
 
-    left header
+    <center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
+
+  @startuml
+
+      left header
          <font color=000 size=10><b>ID:</b> v1.ORGANIZATION.003
          <font color=000 size=10><b>НАЗВА:</b> Змінити дані про організацію
-         <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система 
+         <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система
          <font color=000 size=10><b>ПЕРЕДУМОВИ:</b>
          <font color=000 size=10>Користувач авторизований у системі.
          <font color=000 size=10>Користувач має доступ до запитаної організації.
          <font color=000 size=10><b>РЕЗУЛЬТАТ:</b> Повідомлення про зміну даних організації.
-         <font color=000 size=10><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b> 
+         <font color=000 size=10><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
          <font color=000 size=10>v1.NOT_LOGGED.EX.004
          <font color=000 size=10>v1.COMMON.EX.001
          <font color=000 size=10>v1.COMMON.EX.002
          <font color=000 size=10>v1.COMMON.EX.003
-     end header
-     
-     |Користувач|
-         start
-         : Запитує зміну
-         даних про організацію ;
-         
-     |Система|
-         : Ідентифікує користувача;
-         
+
+  end header
+
+  |Користувач|
+  start
+  : Запитує зміну
+  даних про організацію ;
+
+  |Система|
+  : Ідентифікує користувача;
+
          note right #ff0000
          <b>Можлива</b>
          <b>v1.NOT_LOGGED.EX.004</b>
          end note
-         
+
          : Перевіряє, чи
          існує організація;
-         
+
          note right #ff0000
          <b>Можлива</b>
          <b>v1.COMMON.EX.001</b>
          end note
-         
+
          : Знаходить дані
          про організацію;
-         
+
          : Авторизує користувача
          для зміни даних
          про організацію;
-         
+
          note right #ff0000
          <b>Можлива</b>
          <b>v1.COMMON.EX.002</b>
          end note
-         
+
          : Надає користувачу форму
          для заповнення змінених
          даних про організацію;
-         
-     |Користувач|
-         : Заповнює форму
-         зміненими даними;
-         
-     |Система|
-         : Перевіряє правильність
-         надісланих даних;
-         
+
+  |Користувач|
+  : Заповнює форму
+  зміненими даними;
+
+  |Система|
+  : Перевіряє правильність
+  надісланих даних;
+
          note right #ff0000
          <b>Можлива</b>
          <b>v1.COMMON.EX.003</b>
          end note
-         
+
          : Змінює дані
          про організацію;
-         
+
          : Надсилає користувачу
          повідомлення про зміну
-         даних організації ;
-         
-     |Користувач|
-         stop;
-@enduml
-```
-яка буде відображена наступним чином:
-![image](https://user-images.githubusercontent.com/71893656/140228766-449b96d8-d55a-44f6-b80f-dbd5d7554840.png)
-<br><br>
+         даних організації;
+
+  |Користувач|
+  stop;
+
+  @enduml
+
+  </center>
 
 - ID: v1.ORGANIZATION.004
 
-```md
-@startuml
+    <center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
 
-    left header
+  @startuml
 
+      left header
         <font color=000 size=18><b>ID:</b> v1.ORGANIZATION.004
-
         <font color=000 size=16><b>НАЗВА:</b> Створити опитування
         <font color=000 size=16><b>УЧАСНИКИ:</b> Користувач, Система
-
         <font color=000 size=16><b>ПЕРЕДУМОВИ:</b>
         <font color=000 size=16>1.Користувач авторизований у системі.
         <font color=000 size=16>2.Користувач має доступ до запитаної організації.
-
         <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Повідомлення про створення опитування.
-
         <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
         <font color=000 size=16>v1.NOT_LOGGED.EX.004
         <font color=000 size=16>v1.COMMON.EX.001
         <font color=000 size=16>v1.COMMON.EX.002
         <font color=000 size=16>v1.COMMON.EX.003
-
         <font color=000 size=16><b>ОСНОВНИЙ СЦЕНАРІЙ:</b>
 
-    end header
+  end header
 
-    |Користувач|
-        start
-        :Користувач авторизується
-        в системі;
+  |Користувач|
+  start
+  :Користувач авторизується
+  в системі;
 
         :Користувач відкриває
         форму запиту
@@ -532,13 +524,13 @@
         :Користувач нажимає
         кнопку "Відправити запит";
 
-    |Система|
-        :Система ідентифікує
-        користувача;
-        note right #ffaaaa
-        <b>Можлива</b>
-        <b>v1.NOT_LOGGED.EX.004</b>
-        end note
+  |Система|
+  :Система ідентифікує
+  користувача;
+  note right #ffaaaa
+  <b>Можлива</b>
+  <b>v1.NOT_LOGGED.EX.004</b>
+  end note
 
         :Система знаходить дані
         про організацію;
@@ -567,10 +559,10 @@
         користувачу повідомлення про
         створення опитування;
 
-    |Користувач|
-        :Користувач отримує
-        повідомлення від системи
-        про створення опитування;
+  |Користувач|
+  :Користувач отримує
+  повідомлення від системи
+  про створення опитування;
 
         :Користувач ознайомлюється
         з повідомлення;
@@ -580,48 +572,40 @@
 
         :Користувач завершує
         взаємодію;
-        stop;
 
-@enduml
-```
+  stop;
 
-яка буде відображена наступним чином:
+  @enduml
 
-![v1.ORGANIZATION.004](https://user-images.githubusercontent.com/71709401/140643836-9a3723b4-5fa9-4b1e-af1b-8b1dc9b6bb4b.png)
-<br><br>
+  </center>
 
 - ID: v1.ORGANIZATION.005
 
-```md
-@startuml
+  <center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
 
-    left header
+  @startuml
 
-        <font color=000 size=18><b>ID:</b> v1.ORGANIZATION.005
+  left header
+  <font color=000 size=18><b>ID:</b> v1.ORGANIZATION.005
+  <font color=000 size=16><b>НАЗВА:</b> Змінити дані про опитування
+  <font color=000 size=16><b>УЧАСНИКИ:</b> Користувач, Система
+  <font color=000 size=16><b>ПЕРЕДУМОВИ:</b>
+  <font color=000 size=16>1.Користувач авторизований у системі.
+  <font color=000 size=16>2.Користувач має доступ до запитаної організації.
+  <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Повідомлення про змінення даних опитування.
+  <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
+  <font color=000 size=16>v1.NOT_LOGGED.EX.004
+  <font color=000 size=16>v1.COMMON.EX.001
+  <font color=000 size=16>v1.COMMON.EX.002
+  <font color=000 size=16>v1.COMMON.EX.003
+  <font color=000 size=16><b>ОСНОВНИЙ СЦЕНАРІЙ:</b>
 
-        <font color=000 size=16><b>НАЗВА:</b> Змінити дані про опитування
-        <font color=000 size=16><b>УЧАСНИКИ:</b> Користувач, Система
+  end header
 
-        <font color=000 size=16><b>ПЕРЕДУМОВИ:</b>
-        <font color=000 size=16>1.Користувач авторизований у системі.
-        <font color=000 size=16>2.Користувач має доступ до запитаної організації.
-
-        <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Повідомлення про змінення даних опитування.
-
-        <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
-        <font color=000 size=16>v1.NOT_LOGGED.EX.004
-        <font color=000 size=16>v1.COMMON.EX.001
-        <font color=000 size=16>v1.COMMON.EX.002
-        <font color=000 size=16>v1.COMMON.EX.003
-
-        <font color=000 size=16><b>ОСНОВНИЙ СЦЕНАРІЙ:</b>
-
-    end header
-
-    |Користувач|
-        start
-        :Користувач авторизується
-        в системі;
+  |Користувач|
+  start
+  :Користувач авторизується
+  в системі;
 
         :Користувач відкриває
         форму запиту
@@ -633,9 +617,9 @@
         :Користувач нажимає
         кнопку "Відправити запит";
 
-    |Система|
-        :Система отримує запит
-        від користувача;
+  |Система|
+  :Система отримує запит
+  від користувача;
 
         :Система ідентифікує
         користувача;
@@ -672,10 +656,10 @@
         користувачу повідомлення про
         змінення опитування;
 
-    |Користувач|
-        :Користувач отримує
-        повідомлення від системи
-        про змінення опитування;
+  |Користувач|
+  :Користувач отримує
+  повідомлення від системи
+  про змінення опитування;
 
         :Користувач ознайомлюється
         з повідомлення;
@@ -685,46 +669,39 @@
 
         :Користувач завершує
         взаємодію;
-        stop;
 
-@enduml
-```
+  stop;
 
-яка буде відображена наступним чином:
+  @enduml
 
-![image](https://user-images.githubusercontent.com/71709401/140644638-3b8d6837-e7e7-48e7-97c4-7d961793b3fd.png)
+  </center>
 
 - ID: v1.ORGANIZATION.006
 
-```md
-@startuml
+  <center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
 
-    left header
+  @startuml
 
-        <font color=000 size=18><b>ID:</b> v1.ORGANIZATION.006
+  left header
+  <font color=000 size=18><b>ID:</b> v1.ORGANIZATION.006
+  <font color=000 size=16><b>НАЗВА:</b> Отримати результати опитування
+  <font color=000 size=16><b>УЧАСНИКИ:</b> Користувач, Система
+  <font color=000 size=16><b>ПЕРЕДУМОВИ:</b>
+  <font color=000 size=16>1.Користувач авторизований у системі.
+  <font color=000 size=16>2.Користувач має доступ до запитаної організації.
+  <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Результати опитування
+  <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
+  <font color=000 size=16>v1.NOT_LOGGED.EX.004
+  <font color=000 size=16>v1.COMMON.EX.001
+  <font color=000 size=16>v1.COMMON.EX.002
+  <font color=000 size=16><b>ОСНОВНИЙ СЦЕНАРІЙ:</b>
 
-        <font color=000 size=16><b>НАЗВА:</b> Отримати результати опитування
-        <font color=000 size=16><b>УЧАСНИКИ:</b> Користувач, Система
+  end header
 
-        <font color=000 size=16><b>ПЕРЕДУМОВИ:</b>
-        <font color=000 size=16>1.Користувач авторизований у системі.
-        <font color=000 size=16>2.Користувач має доступ до запитаної організації.
-
-        <font color=000 size=16><b>РЕЗУЛЬТАТ:</b> Результати опитування
-
-        <font color=000 size=16><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b>
-        <font color=000 size=16>v1.NOT_LOGGED.EX.004
-        <font color=000 size=16>v1.COMMON.EX.001
-        <font color=000 size=16>v1.COMMON.EX.002
-
-        <font color=000 size=16><b>ОСНОВНИЙ СЦЕНАРІЙ:</b>
-
-    end header
-
-    |Користувач|
-        start
-        :Користувач авторизується
-        в системі;
+  |Користувач|
+  start
+  :Користувач авторизується
+  в системі;
 
         :Користувач відкриває
         форму запиту
@@ -733,9 +710,9 @@
         :Користувач нажимає
         кнопку "Відправити запит";
 
-    |Система|
-        :Система отримує запит
-        від користувача;
+  |Система|
+  :Система отримує запит
+  від користувача;
 
         :Система ідентифікує
         користувача;
@@ -767,10 +744,10 @@
         користувачу результати
         опитування;
 
-    |Користувач|
-        :Користувач отримує
-        повідомлення з результатами
-        від системи;
+  |Користувач|
+  :Користувач отримує
+  повідомлення з результатами
+  від системи;
 
         :Користувач ознайомлюється
         з повідомленням;
@@ -780,14 +757,12 @@
 
         :Користувач завершує
         взаємодію;
-        stop;
 
-@enduml
-```
+  stop;
 
-яка буде відображена наступним чином:
+  @enduml
 
-![image](https://user-images.githubusercontent.com/71709401/140646001-f0309c5d-8c78-41a4-8291-bbde7dc487ca.png)
+  </center>
 
 - ID: v1.NOT_LOGGED.EX.004
 
@@ -952,7 +927,6 @@
          : Завершує взаємодію;
          stop;
 
-
 @enduml
 
 </center>
@@ -989,7 +963,6 @@
      |Система|
          : Завершує взаємодію;
          stop;
-
 
 @enduml
 
@@ -1029,7 +1002,6 @@
 
          : Завершує взаємодію;
          stop;
-
 
 @enduml
 
