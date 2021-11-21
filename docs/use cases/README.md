@@ -221,7 +221,7 @@
 >
    @startuml
     
-   left header
+    left header
          <font color=000 size=10><b>ID:</b> v1.USER.003
          <font color=000 size=10><b>НАЗВА:</b> Отримати зворотній зв'язок стосовно надісланого опитування
          <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система 
@@ -294,7 +294,7 @@
 >
    @startuml
 
-   left header
+    left header
          <font color=000 size=10><b>ID:</b> v1.ORGANIZATION.001
          <font color=000 size=10><b>НАЗВА:</b> Створити організацію
          <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система 
@@ -356,7 +356,7 @@
 >
    @startuml
 
-   left header
+    left header
          <font color=000 size=10><b>ID:</b> v1.ORGANIZATION.002
          <font color=000 size=10><b>НАЗВА:</b> Отримати дані про організацію
          <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система 
@@ -422,7 +422,7 @@
 >
    @startuml
 
-   left header
+    left header
          <font color=000 size=10><b>ID:</b> v1.ORGANIZATION.003
          <font color=000 size=10><b>НАЗВА:</b> Змінити дані про організацію
          <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система 
