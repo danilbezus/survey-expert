@@ -59,7 +59,7 @@
          <font color=000 size=10><b>ПЕРЕДУМОВИ:</b>
          <font color=000 size=10>Користувач зареєстрований у системі.
          <font color=000 size=10>Користувач не авторизований у системі.
-         <font color=000 size=10><b>РЕЗУЛЬТАТ:</b>Авторизація у системі
+         <font color=000 size=10><b>РЕЗУЛЬТАТ:</b>Сеанс роботи
          <font color=000 size=10><b>ВИКЛЮЧНІ СИТУАЦІЇ:</b> 
          <font color=000 size=10>v1.NOT_LOGGED.EX.002
          <font color=000 size=10>v1.NOT_LOGGED.EX.003
