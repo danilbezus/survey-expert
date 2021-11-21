@@ -213,10 +213,15 @@
    </center>
 
 - ID: v1.USER.003
-
-```md
-@startuml
-    left header
+ <center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+   @startuml
+    
+   left header
          <font color=000 size=10><b>ID:</b> v1.USER.003
          <font color=000 size=10><b>НАЗВА:</b> Отримати зворотній зв'язок стосовно надісланого опитування
          <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система 
@@ -278,18 +283,18 @@
      |Користувач|
          stop;
 @enduml
-```
-яка буде відображена наступним чином:
-
-![image](https://user-images.githubusercontent.com/71893656/140197276-debab64a-fafa-4c26-847b-cc870ed12374.png)
-<br><br>
+   </center>
 
 - ID: v1.ORGANIZATION.001
+ <center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+   @startuml
 
-```md
-@startuml
-
-    left header
+   left header
          <font color=000 size=10><b>ID:</b> v1.ORGANIZATION.001
          <font color=000 size=10><b>НАЗВА:</b> Створити організацію
          <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система 
@@ -339,18 +344,19 @@
      |Користувач|
          stop;
 @enduml
-```
-яка буде відображена наступним чином:
+   </center>
 
-![image](https://user-images.githubusercontent.com/71893656/140225337-4bb7d7fa-2964-44d7-b7f1-fef4dde5ddbb.png)
-<br><br>
 
 - ID: v1.ORGANIZATION.002
+ <center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+   @startuml
 
-```md
-@startuml
-
-    left header
+   left header
          <font color=000 size=10><b>ID:</b> v1.ORGANIZATION.002
          <font color=000 size=10><b>НАЗВА:</b> Отримати дані про організацію
          <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система 
@@ -405,17 +411,18 @@
      |Користувач|
          stop;
 @enduml
-```
-яка буде відображена наступним чином:
-
-![image](https://user-images.githubusercontent.com/71893656/140224356-f27bc51b-7757-4a55-97f7-6fb9fdf41211.png)
-<br><br>
+   </center>
 
 - ID: v1.ORGANIZATION.003
-```md
-@startuml
+ <center style="
+    border-radius:4px;
+    border: 1px solid #cfd7e6;
+    box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
+    padding: 1em;"
+>
+   @startuml
 
-    left header
+   left header
          <font color=000 size=10><b>ID:</b> v1.ORGANIZATION.003
          <font color=000 size=10><b>НАЗВА:</b> Змінити дані про організацію
          <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система 
@@ -490,11 +497,7 @@
      |Користувач|
          stop;
 @enduml
-```
-яка буде відображена наступним чином:
-
-![image](https://user-images.githubusercontent.com/71893656/140228766-449b96d8-d55a-44f6-b80f-dbd5d7554840.png)
-<br><br>
+   </center>
 
 - ID: v1.ORGANIZATION.004
 
