@@ -621,13 +621,14 @@
 
 ![image](https://user-images.githubusercontent.com/71709401/140646001-f0309c5d-8c78-41a4-8291-bbde7dc487ca.png)
 
-- ID:	v1.NOT_LOGGED.EX.004
+- ID: v1.NOT_LOGGED.EX.004
+
 <center style="
     border-radius:4px;
     border: 1px solid #cfd7e6;
     box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
-    padding: 1em;"
->
+    padding: 1em;" >
+    
 @startuml
   
     left header
@@ -654,13 +655,14 @@
 @enduml
 </center>
 
-- ID:	v1.COMMON.EX.001
+- ID: v1.COMMON.EX.001
+
 <center style="
     border-radius:4px;
     border: 1px solid #cfd7e6;
     box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
-    padding: 1em;"
->
+    padding: 1em;" >
+    
 @startuml
   
     left header
@@ -685,13 +687,14 @@
 @enduml
 </center>
 
-- ID:	v1.COMMON.EX.002
+- ID: v1.COMMON.EX.002
+
 <center style="
     border-radius:4px;
     border: 1px solid #cfd7e6;
     box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
-    padding: 1em;"
->
+    padding: 1em;" >
+    
 @startuml
   
     left header
@@ -714,35 +717,38 @@
 @enduml
 </center>
 
-- ID:	v1.COMMON.EX.003
+- ID: v1.COMMON.EX.003
+
 <center style="
     border-radius:4px;
     border: 1px solid #cfd7e6;
     box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025);
-    padding: 1em;"
->
+    padding: 1em;" >
+
 @startuml
-  
+
     left header
          <font color=000 size=10><b>ID:</b> v1.COMMON.EX.003
          <font color=000 size=10><b>НАЗВА:</b> Відхилити хибні дані
-         <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система 
-         <font color=000 size=10><b>ПЕРЕДУМОВИ:</b> 
+         <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система
+         <font color=000 size=10><b>ПЕРЕДУМОВИ:</b>
          <font color=000 size=10>Користувач авторизований у системі.
          <font color=000 size=10>Користувач надіслав у систему хибні дані.
          <font color=000 size=10><b>РЕЗУЛЬТАТ:</b> Повідомлення про відхилення хибних даних.
      end header
      |Система|
          start
-         : Надає користувачу повідомлення 
+         : Надає користувачу повідомлення
          про відхилення хибних даних.;
      |Користувач|
-         : Отримує повідомлення 
+         : Отримує повідомлення
          про відхилення хибних даних.;
      |Система|
          : Завершує взаємодію;
          stop;
+
 @enduml
+
 </center>
 
 - ID: v1.NOT_LOGGED.EX.001
