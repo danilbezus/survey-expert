@@ -6,11 +6,102 @@
 
 В markdown-файлі використовується опис діаграми.
 
-- Загальна діаграма бізнес процесів:
+## Діаграма прецедентів
 
-![General Diagram](https://user-images.githubusercontent.com/31734600/142782266-94a6df78-9d32-4a05-8be8-51d2fbb35888.png)
-<br><br><br>
-**Діаграми прецедентів**
+<center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
+
+@startuml
+actor User
+actor AuthorizedUser
+actor OrganizationManager
+
+AuthorizedUser -u-|> User
+OrganizationManager -u-|> AuthorizedUser
+
+usecase "**NOT_LOGGED**\nЗареєструватись та авторизуватись" as NL
+usecase "**USER**\nОтримати та пройти опитування" as U
+usecase "**ORGANIZATION**\nСтворити та редагувати організацію\nСтворити, аналізувати та редагувати опитування" as O
+User -r-> NL
+AuthorizedUser -r-> U
+OrganizationManager -r-> O
+@enduml
+
+  </center>
+
+## Схеми використання для користувача
+
+<center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
+
+@startuml
+actor User
+
+usecase "**NOT_LOGGED**\nЗареєструватись та авторизуватись" as NL
+
+User -r-> NL
+
+usecase "**NOT_LOGGED.001**\nЗареєструватись у системі" as REG
+usecase "**NOT_LOGGED.002**\nАвторизуватись у системі" as AUTH
+
+NL .u.> REG : extends
+NL .u.> AUTH : extends
+@enduml
+
+  </center>
+
+## Схеми використання для авторизованого користувача
+
+<center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
+
+@startuml
+actor AuthorizedUser
+
+usecase "**USER**\nОтримати та пройти опитування" as U
+
+AuthorizedUser -r-> U
+
+usecase "**USER.001**\nОтримати дані для проходження опитування" as GET
+usecase "**USER.002**\nНадіслати дані про проходження опитування" as SEND
+usecase "**USER.003**\nОтримати зворотній зв'язок \nстосовно надісланого опитування" as GET_REVIEW
+
+U .u.> GET : extends
+U .u.> SEND : extends
+U .d.> GET_REVIEW : extends
+@enduml
+
+  </center>
+
+## Схеми використання для менеджера організації
+
+<center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
+
+@startuml
+actor OrganizationManager
+
+usecase "**ORGANIZATION**\nСтворити та редагувати організацію\nСтворити, аналізувати та редагувати опитування" as O
+
+OrganizationManager -r-> O
+
+usecase "**ORGANIZATION.001**\nСтворити організацію" as CREAT
+usecase "**ORGANIZATION.002**\nОтримати дані про організацію" as GET
+usecase "**ORGANIZATION.003**\nЗмінити дані про організацію" as CHANGE
+usecase "**ORGANIZATION.004**\nСтворити опитування" as CREATE_POLL
+usecase "**ORGANIZATION.005**\nЗмінити дані про опитування" as EDIT_POLL
+usecase "**ORGANIZATION.006**\nОтримати результати опитування" as GET_POLL_RESULTS
+
+O .u.> CREAT : extends
+O .u.> GET : extends
+O .u.> CHANGE : extends
+O .r.> CREATE_POLL : extends
+O .d.> EDIT_POLL : extends
+O .d.> GET_POLL_RESULTS : extends
+@enduml
+
+  </center>
+
+<br><br>
+
+## Сценарії використання для користувача
+
 <br><br>
 
 - ID: v1.NOT_LOGGED.001
@@ -100,6 +191,8 @@
 
     </center>
 
+## Сценарії для авторизованого користувача
+
 - ID: v1.USER.001
 
   <center style="border-radius:4px; border: 1px solid #cfd7e6; box-shadow: 0 1px 3px 0 rgba(89,105,129,.05), 0 1px 1px 0 rgba(0,0,0,.025); padding: 1em;">
@@ -165,7 +258,7 @@
 
         left header
              <font color=000 size=10><b>ID:</b> v1.USER.002
-             <font color=000 size=10><b>НАЗВА:</b>Отримати дані для проходження опитування
+             <font color=000 size=10><b>НАЗВА:</b>Надіслати дані про проходження опитування
              <font color=000 size=10><b>УЧАСНИКИ:</b> Користувач, Система
              <font color=000 size=10><b>ПЕРЕДУМОВИ:</b>
              <font color=000 size=10>Користувач авторизований у системі.
@@ -278,6 +371,8 @@
   @enduml
 
   </center>
+
+## Сценарії для менеджера організацій
 
 - ID: v1.ORGANIZATION.001
 
@@ -763,6 +858,8 @@
   @enduml
 
   </center>
+
+## Виключні випадки
 
 - ID: v1.NOT_LOGGED.EX.004
 
