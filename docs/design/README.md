@@ -1,7 +1,7 @@
 # Проєктування бази даних
 
 В рамках проекту розробляється: 
-- модель бізнес-об'єктів 
+## Модель бізнес-об'єктів 
 
 @startuml
 entity User #eeffff
@@ -20,7 +20,6 @@ entity Picture #aaaeee
 entity Address #aaaeee
 entity Poll
 
-entity PollType #eeffff
 entity PollType.Name
 entity PollType.Description #aaaeee
 
@@ -41,7 +40,7 @@ entity IsWhiteList
 entity IsBlackList
 entity IsPrivate
 entity Link
-entity Poll.Type
+entity Poll.Type #eeffff
 
 
 entity QuestionType #eeffff
@@ -63,7 +62,6 @@ entity Content
 
 entity PollResult #eeffff
 entity Date
-entity PR_Comment #aaaeee
 entity Respondent
 
 
@@ -97,8 +95,8 @@ Picture -d-* Organization
 Address -r-* Organization
 Poll "0,*"--*"1" Organization
 
-PollType.Name -u-* PollType
-PollType.Description --* PollType
+PollType.Name -u-* Poll.Type
+PollType.Description --* Poll.Type
 
 BlackListedUser -u-* BL_User
 BlackListedUser --* BL_Poll
@@ -130,8 +128,8 @@ Index --* AnswerOption
 
 AnswerOption --* Question
 Question --* Question.Type
-Title --* Question.Title
-Question.Description --* Question
+Question.Title --* Question
+Question.Description -l-* Question
 AnswerFeedback "0,*"--*"1,*" Question
 
 Answer --* Content
@@ -145,16 +143,16 @@ Answer "1,*"--*"1" PollResult
 QF_Comment --* QuestionFeedback
 QuestionFeedback *--* QF_Question
 
-GeneralComment --* PoolFeedback
+GeneralComment -l-* PollFeedback
 Rating --* PollFeedback
 MaxRating --* PollFeedback
 Reviewer -u-* PollFeedback
 PF_Poll -u-* PollFeedback
-QuestionFeedback "0,*"--*"1,*" PollFeedback
+QuestionFeedback "0,*"-u-*"1,*" PollFeedback
 
 @enduml
 
-- ER-модель
+## ER-модель
 
 @startuml
 
@@ -250,4 +248,6 @@ QuestionFeedback "0,*"--*"1,*" PollFeedback
 
 @enduml
   
-- реляційна схема
+## Реляційна схема
+
+![eer](https://user-images.githubusercontent.com/31734600/144898655-802598be-ae4f-47d1-8a1e-8f0684b164e2.png)
