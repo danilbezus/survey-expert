@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Реалізація інформаційного та програмного забезпечення | Survey Expert. Система управління експертними опитуваннями</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/survey-expert/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="description" content="Курсова робота з дисципліни "Бази даних"">
+    
+    <link rel="preload" href="/survey-expert/assets/css/0.styles.edc1f23b.css" as="style"><link rel="preload" href="/survey-expert/assets/js/app.31a0e42e.js" as="script"><link rel="preload" href="/survey-expert/assets/js/2.bec200de.js" as="script"><link rel="preload" href="/survey-expert/assets/js/22.258511df.js" as="script"><link rel="prefetch" href="/survey-expert/assets/js/10.f698d7b0.js"><link rel="prefetch" href="/survey-expert/assets/js/11.7227b195.js"><link rel="prefetch" href="/survey-expert/assets/js/12.90f4964f.js"><link rel="prefetch" href="/survey-expert/assets/js/13.df3761c4.js"><link rel="prefetch" href="/survey-expert/assets/js/14.8d9090ca.js"><link rel="prefetch" href="/survey-expert/assets/js/15.d75da2a5.js"><link rel="prefetch" href="/survey-expert/assets/js/16.16ad9872.js"><link rel="prefetch" href="/survey-expert/assets/js/17.511fcf96.js"><link rel="prefetch" href="/survey-expert/assets/js/18.d84bda65.js"><link rel="prefetch" href="/survey-expert/assets/js/19.13f2eec0.js"><link rel="prefetch" href="/survey-expert/assets/js/20.3cdd5982.js"><link rel="prefetch" href="/survey-expert/assets/js/21.8648676a.js"><link rel="prefetch" href="/survey-expert/assets/js/23.0d2f07d0.js"><link rel="prefetch" href="/survey-expert/assets/js/24.1428aaae.js"><link rel="prefetch" href="/survey-expert/assets/js/25.4d9e7944.js"><link rel="prefetch" href="/survey-expert/assets/js/26.87ff770b.js"><link rel="prefetch" href="/survey-expert/assets/js/3.35028db7.js"><link rel="prefetch" href="/survey-expert/assets/js/4.83e1d61a.js"><link rel="prefetch" href="/survey-expert/assets/js/5.8b0efd2b.js"><link rel="prefetch" href="/survey-expert/assets/js/6.12ac8248.js"><link rel="prefetch" href="/survey-expert/assets/js/7.7e448295.js"><link rel="prefetch" href="/survey-expert/assets/js/8.9eb32a6c.js"><link rel="prefetch" href="/survey-expert/assets/js/9.cce8dc66.js">
+    <link rel="stylesheet" href="/survey-expert/assets/css/0.styles.edc1f23b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/survey-expert/" class="home-link router-link-active"><!----> <span class="site-name">Survey Expert. Система управління експертними опитуваннями</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/survey-expert/" class="nav-link">
+  Початок
+</a></div> <a href="https://github.com/MatthewKirik/survey-expert" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/survey-expert/" class="nav-link">
+  Початок
+</a></div> <a href="https://github.com/MatthewKirik/survey-expert" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/survey-expert/intro/" class="sidebar-link">Вступ</a></li><li><section class="sidebar-group collapsable depth-0"><a href="/survey-expert/requirements/" class="sidebar-heading clickable"><span>Розроблення загальних вимог до системи</span> <span class="arrow right"></span></a> <!----></section></li><li><a href="/survey-expert/use%20cases/" class="sidebar-link">Розроблення вимог до функціональности системи</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/survey-expert/use%20cases/#діаграма-прецедентів" class="sidebar-link">Діаграма прецедентів</a></li><li class="sidebar-sub-header"><a href="/survey-expert/use%20cases/#схеми-використання-для-користувача" class="sidebar-link">Схеми використання для користувача</a></li><li class="sidebar-sub-header"><a href="/survey-expert/use%20cases/#схеми-використання-для-авторизованого-користувача" class="sidebar-link">Схеми використання для авторизованого користувача</a></li><li class="sidebar-sub-header"><a href="/survey-expert/use%20cases/#схеми-використання-для-менеджера-організаціі" class="sidebar-link">Схеми використання для менеджера організації</a></li><li class="sidebar-sub-header"><a href="/survey-expert/use%20cases/#сценаріі-використання-для-користувача" class="sidebar-link">Сценарії використання для користувача</a></li><li class="sidebar-sub-header"><a href="/survey-expert/use%20cases/#сценаріі-для-авторизованого-користувача" class="sidebar-link">Сценарії для авторизованого користувача</a></li><li class="sidebar-sub-header"><a href="/survey-expert/use%20cases/#сценаріі-для-менеджера-організаціи" class="sidebar-link">Сценарії для менеджера організацій</a></li><li class="sidebar-sub-header"><a href="/survey-expert/use%20cases/#виключні-випадки" class="sidebar-link">Виключні випадки</a></li></ul></li><li><a href="/survey-expert/design/" class="sidebar-link">Проектування інформаційного забезпечення</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/survey-expert/design/#модель-бізнес-об-єктів" class="sidebar-link">Модель бізнес-об'єктів</a></li><li class="sidebar-sub-header"><a href="/survey-expert/design/#er-модель" class="sidebar-link">ER-модель</a></li><li class="sidebar-sub-header"><a href="/survey-expert/design/#реляціина-схема" class="sidebar-link">Реляційна схема</a></li></ul></li><li><a href="/survey-expert/software/" aria-current="page" class="active sidebar-link">Реалізація інформаційного та програмного забезпечення</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/survey-expert/software/#sql-скрипт-для-створення-на-початкового-наповнення-бази-даних" class="sidebar-link">SQL-скрипт для створення на початкового наповнення бази даних</a></li><li class="sidebar-sub-header"><a href="/survey-expert/software/#restfull-сервіс-для-управління-даними" class="sidebar-link">RESTfull сервіс для управління даними</a></li></ul></li><li><a href="/survey-expert/test/" class="sidebar-link">Тестування працездатності системи</a></li><li><a href="/survey-expert/conclusion/" class="sidebar-link">Висновки</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="реалізація-інформаціиного-та-програмного-забезпечення"><a href="#реалізація-інформаціиного-та-програмного-забезпечення" class="header-anchor">#</a> Реалізація інформаційного та програмного забезпечення</h1> <p>В рамках проекту розробляється:</p> <h2 id="sql-скрипт-для-створення-на-початкового-наповнення-бази-даних"><a href="#sql-скрипт-для-створення-на-початкового-наповнення-бази-даних" class="header-anchor">#</a> SQL-скрипт для створення на початкового наповнення бази даних</h2> <div class="language- extra-class"><pre class="language-text"><code>-- MySQL Script generated by MySQL Workbench
+-- Mon Dec  6 20:05:32 2021
+-- Model: New Model    Version: 1.0
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`User`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`User` (
+  `id` INT NOT NULL,
+  `Name` VARCHAR(45) NULL,
+  `Email` VARCHAR(45) NULL,
+  `Password` VARCHAR(45) NULL,
+  `Salt` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Organization`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Organization` (
+  `id` INT NOT NULL,
+  `Name` VARCHAR(45) NULL,
+  `Creating date` DATE NULL,
+  `Description` VARCHAR(45) NULL,
+  `Adress` VARCHAR(45) NULL,
+  `Creator_Id` INT NOT NULL,
+  PRIMARY KEY (`id`, `Creator_Id`),
+  INDEX `fk_Organization_User1_idx` (`Creator_Id` ASC) VISIBLE,
+  CONSTRAINT `fk_Organization_User1`
+    FOREIGN KEY (`Creator_Id`)
+    REFERENCES `mydb`.`User` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`PollType`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`PollType` (
+  `Id` INT NOT NULL,
+  `Name` VARCHAR(45) NULL,
+  `Description` VARCHAR(45) NULL,
+  PRIMARY KEY (`Id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`BlacklistedUser`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`BlacklistedUser` (
+  `User` VARCHAR(45) NULL,
+  `Poll` VARCHAR(45) NULL,
+  `UserId` INT NULL,
+  `OrganizationId` INT NULL,
+  `User_Id` INT NOT NULL,
+  `Organization_id` INT NOT NULL,
+  PRIMARY KEY (`User_Id`, `Organization_id`),
+  INDEX `fk_BlacklistedUser_User1_idx` (`User_Id` ASC) VISIBLE,
+  INDEX `fk_BlacklistedUser_Organization1_idx` (`Organization_id` ASC) VISIBLE,
+  CONSTRAINT `fk_BlacklistedUser_User1`
+    FOREIGN KEY (`User_Id`)
+    REFERENCES `mydb`.`User` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_BlacklistedUser_Organization1`
+    FOREIGN KEY (`Organization_id`)
+    REFERENCES `mydb`.`Organization` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`WhitelistedUser`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`WhitelistedUser` (
+  `Name` VARCHAR(45) NULL,
+  `Pool` VARCHAR(45) NULL,
+  `UserId` INT NULL,
+  `User_Id` INT NOT NULL,
+  `Organization_id` INT NOT NULL,
+  PRIMARY KEY (`User_Id`, `Organization_id`),
+  INDEX `fk_WhitelistedUser_User1_idx` (`User_Id` ASC) VISIBLE,
+  INDEX `fk_WhitelistedUser_Organization1_idx` (`Organization_id` ASC) VISIBLE,
+  CONSTRAINT `fk_WhitelistedUser_User1`
+    FOREIGN KEY (`User_Id`)
+    REFERENCES `mydb`.`User` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_WhitelistedUser_Organization1`
+    FOREIGN KEY (`Organization_id`)
+    REFERENCES `mydb`.`Organization` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Poll`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Poll` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Title` VARCHAR(45) NULL,
+  `Description` VARCHAR(45) NULL,
+  `Creation date` DATE NULL,
+  `End date` DATE NULL,
+  `IsWhitelist` TINYINT NULL,
+  `IsBlacklist` TINYINT NULL,
+  `IsPrivate` TINYINT NULL,
+  `Link` VARCHAR(45) NULL,
+  `Type` VARCHAR(45) NULL,
+  `Questions` VARCHAR(45) NULL,
+  `Creator_Id` INT NOT NULL,
+  `Organization_id` INT NOT NULL,
+  `PollType_Id` INT NOT NULL,
+  PRIMARY KEY (`id`, `Organization_id`, `Creator_Id`, `PollType_Id`),
+  INDEX `fk_Pool_User1_idx` (`Creator_Id` ASC) VISIBLE,
+  INDEX `fk_Pool_Organization1_idx` (`Organization_id` ASC) VISIBLE,
+  INDEX `fk_Poll_PollType1_idx` (`PollType_Id` ASC) VISIBLE,
+  CONSTRAINT `fk_Pool_User1`
+    FOREIGN KEY (`Creator_Id`)
+    REFERENCES `mydb`.`User` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Pool_Organization1`
+    FOREIGN KEY (`Organization_id`)
+    REFERENCES `mydb`.`Organization` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Poll_PollType1`
+    FOREIGN KEY (`PollType_Id`)
+    REFERENCES `mydb`.`PollType` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`QuestionType`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`QuestionType` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(45) NULL,
+  `Description` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Question`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Question` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Title` VARCHAR(45) NULL,
+  `Description` VARCHAR(45) NULL,
+  `Type` VARCHAR(45) NULL,
+  `AnswerOption` VARCHAR(45) NULL,
+  `Poll_id` INT NOT NULL,
+  `QuestionType_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `Poll_id`, `QuestionType_id`),
+  INDEX `fk_Question_Poll1_idx` (`Poll_id` ASC) VISIBLE,
+  INDEX `fk_Question_QuestionType1_idx` (`QuestionType_id` ASC) VISIBLE,
+  CONSTRAINT `fk_Question_Poll1`
+    FOREIGN KEY (`Poll_id`)
+    REFERENCES `mydb`.`Poll` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Question_QuestionType1`
+    FOREIGN KEY (`QuestionType_id`)
+    REFERENCES `mydb`.`QuestionType` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`AnswerOption`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`AnswerOption` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Text` VARCHAR(45) NULL,
+  `Index` INT NULL,
+  `Question` VARCHAR(45) NULL,
+  `Question_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `Question_id`),
+  INDEX `fk_AnswerOption_Question1_idx` (`Question_id` ASC) VISIBLE,
+  CONSTRAINT `fk_AnswerOption_Question1`
+    FOREIGN KEY (`Question_id`)
+    REFERENCES `mydb`.`Question` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`PollResult`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`PollResult` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Date` DATE NULL,
+  `Comment` VARCHAR(45) NULL,
+  `Answers` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Answer`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Answer` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Content` VARCHAR(45) NULL,
+  `Question` VARCHAR(45) NULL,
+  `PollResult_id` INT NOT NULL,
+  `Question_Id` INT NOT NULL,
+  PRIMARY KEY (`id`, `PollResult_id`, `Question_Id`),
+  INDEX `fk_Answer_PollResult1_idx` (`PollResult_id` ASC) VISIBLE,
+  INDEX `fk_Answer_Question_idx` (`Question_Id` ASC) VISIBLE,
+  CONSTRAINT `fk_Answer_PollResult1`
+    FOREIGN KEY (`PollResult_id`)
+    REFERENCES `mydb`.`PollResult` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Answer_Question`
+    FOREIGN KEY (`Question_Id`)
+    REFERENCES `mydb`.`Question` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`PollFeedback`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`PollFeedback` (
+  `id` INT NOT NULL,
+  `GeneralComment` VARCHAR(45) NULL,
+  `Reviewer` VARCHAR(45) NULL,
+  `Poll` VARCHAR(45) NULL,
+  `QuestionFeedbacks` VARCHAR(45) NULL,
+  `Creator_Id` INT NOT NULL,
+  PRIMARY KEY (`id`, `Creator_Id`),
+  INDEX `fk_PollFeedback_User_idx` (`Creator_Id` ASC) VISIBLE,
+  CONSTRAINT `fk_PollFeedback_User`
+    FOREIGN KEY (`Creator_Id`)
+    REFERENCES `mydb`.`User` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`QuestionFeedback`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`QuestionFeedback` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Comment` VARCHAR(45) NULL,
+  `Question` VARCHAR(45) NULL,
+  `PollFeedback` VARCHAR(45) NULL,
+  `PollFeedback_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `PollFeedback_id`),
+  INDEX `fk_QuestionFeedback_PollFeedback1_idx` (`PollFeedback_id` ASC) VISIBLE,
+  CONSTRAINT `fk_QuestionFeedback_PollFeedback1`
+    FOREIGN KEY (`PollFeedback_id`)
+    REFERENCES `mydb`.`PollFeedback` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+</code></pre></div><h2 id="restfull-сервіс-для-управління-даними"><a href="#restfull-сервіс-для-управління-даними" class="header-anchor">#</a> RESTfull сервіс для управління даними</h2></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Останнє оновлення:</span> <span class="time">12/6/2021, 9:36:23 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/survey-expert/design/" class="prev">
+        Проектування інформаційного забезпечення
+      </a></span> <span class="next"><a href="/survey-expert/test/">
+        Тестування працездатності системи
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/survey-expert/assets/js/app.31a0e42e.js" defer></script><script src="/survey-expert/assets/js/2.bec200de.js" defer></script><script src="/survey-expert/assets/js/22.258511df.js" defer></script>
+  </body>
+</html>
