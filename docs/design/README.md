@@ -156,95 +156,68 @@ QuestionFeedback "0,*"-u-*"1,*" PollFeedback
 
 @startuml
 
-entity User <<ENTITY>>{
-    Name: TEXT
-    Email: TEXT
-    Password: TEXT
-    Salt: TEXT
-    Authorization_Token: TEXT
+entity User {
+    Name 
+    Email
+    Password
+    Salt
+    Authorization_Token
 }
 
-entity Organization <<ENTITY>>{
-    Name: TEXT
-    Creation_date: DATE
-    Creator: TEXT
-    Description: TEXT
-    Picture: IMAGE
-    Address: TEXT
+entity Organization {
+    Name
+    Description
+    Icon 
+    Address
 }
 
-entity BlackListedUser <<ENTITY>>{
-    BL_User: TEXT
-    BL_Poll: TEXT
+
+entity Survey {
+    Title
+    Description
+    IsPrivate
 }
 
-entity WhiteListedUser <<ENTITY>>{
-    WL_User: TEXT
-    WL_Poll: TEXT
+entity Answer {
+    customAlt: text
+    createdAt: Date
 }
 
-entity Poll <<ENTITY>>{
-    Title: TEXT
-    Description: TEXT
-    CreationDate: DATE
-    End_Date: TEXT
-    IsWhiteList: BOOL
-    IsBlackList: BOOL
-    IsPrivate: BOOL
-    Link: TEXT
-    Type: TEXT
+entity Alternative {
+ Text
+ Description
+ Index
 }
 
-entity Question <<ENTITY>>{
-    Title: TEXT
-    Description: TEXT
-    Type: TEXT
+entity Question {
+    Title
+    Description
+    minAltCount: int
+    maxAltCount: int
 }
 
-entity Answer <<ENTITY>>{
-    Content: TEXT
-    Question: TEXT
-    QuestionType: TEXT
+entity ActionLog {
+    type: text 
+    at: Date
 }
 
-entity PollResult <<ENTITY>>{
-    Date: DATE
-    PR_Comment: TEXT
-    Respondent: TEXT
+entity SelectedAlternative {
 }
 
-entity QuestionFeedback <<ENTITY>>{
-    QF_Comment: TEXT
-    QF_Qeustion: TEXT
-}
-
-entity PollFeedback <<ENTITY>>{
-    GeneralComment: TEXT
-    Rating: NUMBER
-    MaxRating: NUMBER
-    Reviewer: TEXT
-    PF_Poll: TEXT
-}
-
-Poll "0,*"--*"0,*" User
-Organization "0,*"--*"1,*" User
-PollFeedback "0,*"--*"1" User
-
-Poll "0,*"--*"1" Organization
-
-BlackListedUser "1"--"0,*" User
-BlackListedUser "1"--"0,*" Organization
-
-WhiteListedUser "1"--"0,*" User
-WhiteListedUser "1"--"0,*" Organization
+ActionLog "0,*"-->"1,1" User : actor
+ActionLog "0,*"-->"0,1" User :recipient
+ActionLog "0,*"-->"0,1" Survey
+ActionLog "0,*"-->"0,1" Organization
 
 
-Question "1"--*"1,*" Poll
+Alternative "0,*" -u-> "1,1" Question
 
-Answer "1,*"--*"1" PollResult
+SelectedAlternative "0,*" -u-> "1,1" Answer
+SelectedAlternative "0,*" -u-> "1,1" Alternative
+Survey "1,1"<--"0,*" Question
 
-
-QuestionFeedback "0,*"--*"1,*" PollFeedback
+Answer "0,*" -> "1,1" Question
+Answer "0,*" -u-> "1,1" User
 
 @enduml
   
