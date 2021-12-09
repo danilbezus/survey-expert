@@ -241,7 +241,7 @@ WhiteListedUser "1"--"0,*" Organization
 
 Question "1"--*"0,*" Poll
 
-Answer --* Question
+Answer "0,*"--*"1,1" Question
 Answer "0,*"--*"1" PollResult
 
 
