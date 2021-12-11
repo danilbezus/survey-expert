@@ -173,6 +173,11 @@ entity Organization <<ENTITY>>{
     Address: TEXT
 }
 
+entity PollType <<ENTITY>>{
+    Name: TEXT
+    Description: TEXT
+}
+
 entity BlackListedUser <<ENTITY>>{
     BL_User: TEXT
     BL_Poll: TEXT
@@ -195,6 +200,15 @@ entity Poll <<ENTITY>>{
     Type: TEXT
 }
 
+entity QuestionType <<ENTITY>>{
+    Name: TEXT
+    Description: TEXT
+}
+
+entity AnswerOption <<ENTITY>>{
+    Name: TEXT
+    Index: NUMBER
+}
 entity Question <<ENTITY>>{
     Title: TEXT
     Description: TEXT
@@ -228,24 +242,28 @@ entity PollFeedback <<ENTITY>>{
 
 Poll "0,*"--*"1,1" User
 Organization "0,*"--*"1,1" User
-PollFeedback "0,*"--*"1" User
+PollFeedback "0,*"--*"1,1" User
 
-Poll "0,*"--*"1" Organization
+Poll "0,*"--*"1,1" Organization
 
-BlackListedUser "1"--"0,*" User
-BlackListedUser "1"--"0,*" Organization
+BlackListedUser "1,1"*--"0,*" User
+BlackListedUser "1,1"--*"0,*" Organization
 
-WhiteListedUser "1"--"0,*" User
-WhiteListedUser "1"--"0,*" Organization
+WhiteListedUser "1,1"*--"0,*" User
+WhiteListedUser "1,1"--*"0,*" Organization
 
 
-Question "1"--*"0,*" Poll
+Question "0,*"--*"1,1" Poll
 
 Answer "0,*"--*"1,1" Question
-Answer "0,*"--*"1" PollResult
+Answer "0,*"--*"1,1" PollResult
 
+AnswerOption "0,*"--*"1,1" Question
+PollType "0,*"-d-*"1,1" Poll
+QuestionType "0,*"--*"1,1" Question
+QuestionType "0,*"--*"1,1" Answer
 
-QuestionFeedback "0,*"-u-*"1,1" PollFeedback
+QuestionFeedback "0,*"--*"1,1" PollFeedback
 
 @enduml
   
