@@ -2,8 +2,8 @@ const { QuestionFeedback } = require("../models/model");
 
 exports.getAllQuestionfeedback = async (req, res) => {
   try {
-    const Questionfeedback = await Questionfeedback.findAll();
-    return res.json(Questionfeedback);
+    const aQuestionfeedback = await QuestionFeedback.findAll();
+    return res.json(aQuestionfeedback);
   } catch (e) {
     return res.json({ message: e.message });
   }
@@ -12,12 +12,12 @@ exports.getAllQuestionfeedback = async (req, res) => {
 exports.getQuestionfeedback = async (req, res) => {
   try {
     const id = req.params.id;
-    const Questionfeedback = await Questionfeedback.findOne({
+    const aQuestionfeedback = await QuestionFeedback.findOne({
       where: {
         id,
       },
     });
-    return res.json(Questionfeedback);
+    return res.json(aQuestionfeedback);
   } catch (e) {
     return res.json({ message: e.message });
   }
@@ -26,14 +26,14 @@ exports.getQuestionfeedback = async (req, res) => {
 exports.updateQuestionfeedback = async (req, res) => {
   try {
     const id = req.params.id;
-    const Questionfeedback = await Questionfeedback.findOne({
+    const aQuestionfeedback = await QuestionFeedback.findOne({
       where: {
         id,
       },
     });
-    Questionfeedback.update(req.body);
-    Questionfeedback.save();
-    return res.json(Questionfeedback);
+    aQuestionfeedback.update(req.body);
+    aQuestionfeedback.save();
+    return res.json(aQuestionfeedback);
   } catch (e) {
     return res.json({ message: e.message });
   }
@@ -42,12 +42,12 @@ exports.updateQuestionfeedback = async (req, res) => {
 exports.deleteQuestionfeedback = async (req, res) => {
   try {
     const id = req.params.id;
-    const Questionfeedback = await Questionfeedback.destroy({
+    const aQuestionfeedback = await QuestionFeedback.destroy({
       where: {
         id,
       },
     });
-    return res.json(Questionfeedback);
+    return res.json(aQuestionfeedback);
   } catch (e) {
     return res.json({ message: e.message });
   }
@@ -55,9 +55,9 @@ exports.deleteQuestionfeedback = async (req, res) => {
 
 exports.createQuestionfeedback = async (req, res) => {
   try {
-    const Questionfeedback = await Questionfeedback.create(req.body);
+    const aQuestionfeedback = await QuestionFeedback.create(req.body);
 
-    return res.json(Questionfeedback);
+    return res.json(aQuestionfeedback);
   } catch (e) {
     return res.json({ message: e.message });
   }
