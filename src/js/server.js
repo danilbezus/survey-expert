@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
-const typeRouter = require('./routes/type');
-const mDKeyRouter = require('./routes/metaDataKey');
+
+const questionFeedbackRouter = require('./routes/Questionfeedback.js');
+const answerRouter = require('./routes/Answer.js');
 
 app.use(express.json());
-app.use('/type', typeRouter);
-app.use('/metadatakey', mDKeyRouter);
+app.use('/questionfeedback', questionFeedbackRouter);
+app.use('/answer', answerRouter);
 
 module.exports = app;
